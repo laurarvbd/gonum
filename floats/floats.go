@@ -14,7 +14,7 @@ import (
 )
 
 // Add adds, element-wise, the elements of s and dst, and stores in dst.
-// Panics if the lengths of dst and s do not match.
+// It panics if the lengths of dst and s do not match.
 func Add(dst, s []float64) {
 	if len(dst) != len(s) {
 		panic("floats: length of the slices do not match")
@@ -23,7 +23,7 @@ func Add(dst, s []float64) {
 }
 
 // AddTo adds, element-wise, the elements of s and t and
-// stores the result in dst. Panics if the lengths of s, t and dst do not match.
+// stores the result in dst. It panics if the lengths of s, t and dst do not match.
 func AddTo(dst, s, t []float64) []float64 {
 	if len(s) != len(t) {
 		panic("floats: length of adders do not match")
@@ -441,13 +441,13 @@ func MaxIdx(s []float64) int {
 	return ind
 }
 
-// Min returns the maximum value in the input slice. If the slice is empty, Min will panic.
+// Min returns the minimum value in the input slice. If the slice is empty, Min will panic.
 func Min(s []float64) float64 {
 	return s[MinIdx(s)]
 }
 
 // MinIdx returns the index of the minimum value in the input slice. If several
-// entries have the maximum value, the first such index is returned. If the slice
+// entries have the minimum value, the first such index is returned. If the slice
 // is empty, MinIdx will panic.
 func MinIdx(s []float64) int {
 	if len(s) == 0 {

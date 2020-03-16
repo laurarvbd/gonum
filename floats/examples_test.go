@@ -4,9 +4,7 @@
 
 package floats
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // Set of examples for all the functions
 
@@ -52,7 +50,7 @@ func ExampleAdd_newslice() {
 
 func ExampleAdd_unequallengths() {
 	// If the lengths of the slices are unknown,
-	// use Eqlen to check
+	// use EqualLengths to check
 	s1 := []float64{1, 2, 3}
 	s2 := []float64{5, 6, 7, 8}
 
