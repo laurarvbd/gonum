@@ -312,15 +312,17 @@ func (Implementation) Chemm(side blas.Side, uplo blas.Uplo, m, n int, alpha comp
 		return
 	}
 
-	if alpha == 0 {
-		if beta == 0 {
-			for i := 0; i < m; i++ {
-				ci := c[i*ldc : i*ldc+n]
-				for j := range ci {
-					ci[j] = 0
-				}
+	if beta == 0 {
+		for i := 0; i < m; i++ {
+			ci := c[i*ldc : i*ldc+n]
+			for j := range ci {
+				ci[j] = 0
 			}
-		} else {
+		}
+	}
+
+	if alpha == 0 {
+		if beta != 0 {
 			for i := 0; i < m; i++ {
 				ci := c[i*ldc : i*ldc+n]
 				c64.ScalUnitary(beta, ci)
@@ -858,15 +860,17 @@ func (Implementation) Csymm(side blas.Side, uplo blas.Uplo, m, n int, alpha comp
 		return
 	}
 
-	if alpha == 0 {
-		if beta == 0 {
-			for i := 0; i < m; i++ {
-				ci := c[i*ldc : i*ldc+n]
-				for j := range ci {
-					ci[j] = 0
-				}
+	if beta == 0 {
+		for i := 0; i < m; i++ {
+			ci := c[i*ldc : i*ldc+n]
+			for j := range ci {
+				ci[j] = 0
 			}
-		} else {
+		}
+	}
+
+	if alpha == 0 {
+		if beta != 0 {
 			for i := 0; i < m; i++ {
 				ci := c[i*ldc : i*ldc+n]
 				c64.ScalUnitary(beta, ci)
@@ -1041,17 +1045,30 @@ func (Implementation) Csyrk(uplo blas.Uplo, trans blas.Transpose, n, k int, alph
 			for i := 0; i < n; i++ {
 				ci := c[i*ldc+i : i*ldc+n]
 				ai := a[i*lda : i*lda+k]
-				for jc, cij := range ci {
-					j := i + jc
-					ci[jc] = beta*cij + alpha*c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+				if beta == 0 {
+					for jc := range ci {
+						j := i + jc
+						ci[jc] = alpha * c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+					}
+				} else {
+					for jc, cij := range ci {
+						j := i + jc
+						ci[jc] = beta*cij + alpha*c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+					}
 				}
 			}
 		} else {
 			for i := 0; i < n; i++ {
 				ci := c[i*ldc : i*ldc+i+1]
 				ai := a[i*lda : i*lda+k]
-				for j, cij := range ci {
-					ci[j] = beta*cij + alpha*c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+				if beta == 0 {
+					for j := range ci {
+						ci[j] = alpha * c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+					}
+				} else {
+					for j, cij := range ci {
+						ci[j] = beta*cij + alpha*c64.DotuUnitary(ai, a[j*lda:j*lda+k])
+					}
 				}
 			}
 		}
