@@ -1,4 +1,5 @@
 # Gonum [![Build Status](https://www.travis-ci.org/gonum/gonum.svg?branch=master)](https://www.travis-ci.org/gonum/gonum/branches) [![Build status](https://ci.appveyor.com/api/projects/status/valslkp8sr50eepn/branch/master?svg=true)](https://ci.appveyor.com/project/Gonum/gonum/branch/master) [![codecov.io](https://codecov.io/gh/gonum/gonum/branch/master/graph/badge.svg)](https://codecov.io/gh/gonum/gonum) [![coveralls.io](https://coveralls.io/repos/gonum/gonum/badge.svg?branch=master&service=github)](https://coveralls.io/github/gonum/gonum?branch=master) [![GoDoc](https://godoc.org/gonum.org/v1/gonum?status.svg)](https://godoc.org/gonum.org/v1/gonum) [![Go Report Card](https://goreportcard.com/badge/github.com/gonum/gonum)](https://goreportcard.com/report/github.com/gonum/gonum) [![stability-unstable](https://img.shields.io/badge/stability-unstable-yellow.svg)](https://github.com/emersion/stability-badges#unstable)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flaurarvbd%2Fgonum.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flaurarvbd%2Fgonum?ref=badge_shield)
 
 ## Installation
 
@@ -49,3 +50,6 @@ https://groups.google.com/forum/#!forum/gonum-dev
 Original code is licensed under the Gonum License found in the LICENSE file. Portions of the code are subject to the additional licenses found in THIRD_PARTY_LICENSES. All third party code is licensed either under a BSD or MIT license.
 
 Code in graph/formats/dot is dual licensed [Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/) and Gonum License, and users are free to choose the license which suits their needs for this code.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flaurarvbd%2Fgonum.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Flaurarvbd%2Fgonum?ref=badge_large)
